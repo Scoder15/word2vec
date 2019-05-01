@@ -25,7 +25,6 @@ func main() {
 	re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
 	src = re.ReplaceAllStringFunc(src, strings.ToLower)
 
-	//去除STYLE
 	re, _ = regexp.Compile("\\<style[\\S\\s]+?\\</style\\>")
 	src = re.ReplaceAllString(src, "")
 
