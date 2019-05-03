@@ -8,19 +8,11 @@ import (
 )
 
 func main() {
-	//resp, err := http.Get("http://www.sohu.com/a/232886309_108002")
 	file, err := ioutil.ReadFile("/home/jhz126/Desktop/docTrain.txt")
-	// resp, err := http.Get("http://www.163.com")
-	// if err != nil {
-	// 	fmt.Println("http get error.")
-	// }
 	if err != nil {
 		fmt.Println("read file is failed")
 	}
-	//defer resp.Body.Close()
-	//body, err := ioutil.ReadAll(resp.Body)
 	src := string(file)
-
 	//将HTML标签全转换成小写
 	re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
 	src = re.ReplaceAllStringFunc(src, strings.ToLower)
@@ -41,7 +33,6 @@ func main() {
 	src = re.ReplaceAllString(src, "\n")
 	fmt.Println(src)
 	dl := []byte(src)
-	//fmt.Println(strings.TrimSpace(src))
 	errW := ioutil.WriteFile("/home/jhz126/Desktop/docTrainFilter.txt", dl, 0644)
 	if errW != nil {
 		fmt.Println("write file is failed")

@@ -38,8 +38,6 @@ func execCommand(commandName string, params []string) bool {
 		if err2 != nil || io.EOF == err2 {
 			break
 		}
-		//        enc := mahonia.NewDecoder("UTF-8")
-		//        goStr := enc.ConvertString(line)
 		fmt.Println(line)
 	}
 	cmd.Wait()
